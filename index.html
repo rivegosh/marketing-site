@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rive Gosh — Concierge & Chauffeur Privé</title>
+<meta name="description" content="Concierge & Chauffeur Privé — préversion des landing pages.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --rg-champagne: #CCC593;
+    --rg-canvas: #0f0c08;
+    --rg-cream: #F5F0E6;
+    --rg-hairline: rgba(204, 197, 147, 0.35);
+    --rg-dim: rgba(245, 240, 230, 0.6);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body {
+    background: var(--rg-canvas);
+    color: var(--rg-cream);
+    font-family: 'Inter', system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    min-height: 100vh;
+  }
+  .wrap {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 48px 32px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  header {
+    padding-bottom: 32px;
+    border-bottom: 1px solid var(--rg-hairline);
+  }
+  .mark {
+    font-family: 'Playfair Display', serif;
+    font-weight: 500;
+    font-size: 20px;
+    letter-spacing: 0.28em;
+    color: var(--rg-champagne);
+    text-transform: uppercase;
+  }
+  main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 64px 0;
+  }
+  .eyebrow {
+    font-size: 12px;
+    color: var(--rg-champagne);
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    font-weight: 600;
+    margin-bottom: 24px;
+  }
+  h1 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 400;
+    font-size: 56px;
+    line-height: 1.1;
+    color: var(--rg-cream);
+    margin-bottom: 24px;
+    letter-spacing: -0.01em;
+    max-width: 700px;
+  }
+  h1 em { font-style: italic; color: var(--rg-champagne); }
+  .lede {
+    font-size: 22px;
+    line-height: 1.5;
+    color: var(--rg-dim);
+    max-width: 600px;
+    font-weight: 300;
+    margin-bottom: 64px;
+  }
+  .choices {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+    margin-bottom: 48px;
+  }
+  .choice {
+    border-top: 1px solid var(--rg-hairline);
+    padding-top: 24px;
+    text-decoration: none;
+    color: inherit;
+    transition: opacity 200ms ease;
+  }
+  .choice:hover { opacity: 0.75; }
+  .choice-num {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-weight: 400;
+    font-size: 28px;
+    color: var(--rg-champagne);
+    line-height: 1;
+    margin-bottom: 16px;
+  }
+  .choice-title {
+    font-family: 'Playfair Display', serif;
+    font-weight: 500;
+    font-size: 28px;
+    color: var(--rg-cream);
+    margin-bottom: 8px;
+    line-height: 1.2;
+  }
+  .choice-sub {
+    font-size: 15px;
+    line-height: 1.6;
+    color: var(--rg-dim);
+    margin-bottom: 16px;
+  }
+  .choice-arrow {
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    letter-spacing: 0.2em;
+    color: var(--rg-champagne);
+    text-transform: uppercase;
+    font-weight: 600;
+  }
+  .choice-arrow::after { content: ' →'; }
+  footer {
+    padding-top: 32px;
+    border-top: 1px solid var(--rg-hairline);
+    font-size: 12px;
+    color: rgba(245, 240, 230, 0.4);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+  footer a { color: var(--rg-champagne); text-decoration: none; }
+  @media (max-width: 720px) {
+    h1 { font-size: 38px; }
+    .choices { grid-template-columns: 1fr; gap: 16px; }
+    .choice-title { font-size: 22px; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header><div class="mark">Rive Gosh</div></header>
+
+  <main>
+    <div class="eyebrow">Préversion · Landing Pages</div>
+    <h1>L'art du voyage <em>américain</em>.</h1>
+    <p class="lede">Concierge &amp; chauffeur privé pour le voyageur européen aux États-Unis. Choisissez votre porte d'entrée.</p>
+
+    <div class="choices">
+      <a href="/clients" class="choice">
+        <div class="choice-num">01</div>
+        <div class="choice-title">Pour le voyageur</div>
+        <p class="choice-sub">Vous voyagez aux États-Unis et cherchez un chauffeur privé francophone pour vos déplacements.</p>
+        <div class="choice-arrow">Voir la page Clients</div>
+      </a>
+
+      <a href="/affiliates" class="choice">
+        <div class="choice-num">02</div>
+        <div class="choice-title">Pour l'agence</div>
+        <p class="choice-sub">Vous êtes une agence de voyage, un hôtel ou une conciergerie qui envoie ses clients aux États-Unis.</p>
+        <div class="choice-arrow">Voir la page Partenaires</div>
+      </a>
+    </div>
+  </main>
+
+  <footer>
+    <div>Préversion · 2026-05-15</div>
+    <div>Daniel Amaury · <a href="mailto:daniel@rivegosh.com">daniel@rivegosh.com</a></div>
+  </footer>
+
+</div>
+</body>
+</html>

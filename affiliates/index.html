@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<!--
+  Rive Gosh — /affiliates landing page
+  MIRROR — canonical content is GitHub issue #121
+  https://github.com/rivegosh/concierge-rivegosh/issues/121
+  Sibling: #124 (/clients) · Foundation: #132 · Blueprint: #133
+  Audience: European travel agencies (mainly French) booking US chauffeur services for their clients
+  Deploys to: rivegosh.com/affiliates (target — currently standalone file)
+  NOTE: This is NOT the rgconcierge.com /affiliate consumer program (US individuals, cookie-tracked).
+        This is the B2B travel-agency partner track — manual onboarding by Daniel, negotiated terms.
+        NO commission numbers visible on this page (per Roderic 2026-05-15).
+-->
+<html lang="fr" data-lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rive Gosh — Partenariat agences de voyage · Chauffeur privé aux États-Unis</title>
+<meta name="description" content="Pour les agences de voyage, hôtels et conciergeries européens. Réservez un chauffeur privé francophone partout aux États-Unis pour vos clients — avec une commission ou marge agence sur chaque réservation.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --rg-champagne: #CCC593;
+    --rg-canvas: #0f0c08;
+    --rg-black: #0a0a0a;
+    --rg-cream: #F5F0E6;
+    --rg-hairline: rgba(204, 197, 147, 0.35);
+    --rg-dim: rgba(245, 240, 230, 0.6);
+    --rg-mute: rgba(245, 240, 230, 0.4);
+
+    --s-1: 8px; --s-2: 16px; --s-3: 24px; --s-4: 32px;
+    --s-5: 48px; --s-6: 64px; --s-7: 96px; --s-8: 128px;
+
+    --t-cap: 12px; --t-sm: 15px; --t-base: 18px; --t-lead: 22px;
+    --t-h3: 28px; --t-h2: 35px; --t-h1: 44px; --t-hero: 56px; --t-display: 88px;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { background: var(--rg-canvas); color: var(--rg-cream); font-family: 'Inter', system-ui, sans-serif; font-size: var(--t-base); line-height: 1.6; -webkit-font-smoothing: antialiased; }
+
+  [data-lang="fr"] .en { display: none; }
+  [data-lang="en"] .fr { display: none; }
+
+  .wrap { max-width: 1200px; margin: 0 auto; padding: 0 var(--s-4); }
+  @media (max-width: 720px) { .wrap { padding: 0 var(--s-3); } }
+
+  /* ── HEADER ──────────────────────────────────────── */
+  header.top { padding: var(--s-3) 0; border-bottom: 1px solid var(--rg-hairline); position: sticky; top: 0; background: rgba(15, 12, 8, 0.92); backdrop-filter: blur(12px); z-index: 100; }
+  .top-row { display: flex; align-items: center; justify-content: space-between; }
+  .mark { display: inline-block; line-height: 0; }
+  .mark img { display: block; height: 45px; width: auto; }
+  @media (max-width: 720px) { .mark img { height: 34px; } }
+  .top-cta { font-family: 'Inter', sans-serif; font-size: var(--t-cap); letter-spacing: 0.18em; text-transform: uppercase; color: var(--rg-dim); }
+  .top-cta a { color: var(--rg-champagne); text-decoration: none; margin-left: var(--s-2); }
+  .lang-toggle { display: flex; gap: var(--s-2); font-family: 'Inter', sans-serif; font-size: var(--t-cap); letter-spacing: 0.2em; text-transform: uppercase; }
+  .lang-toggle button { background: none; border: none; color: var(--rg-dim); font: inherit; letter-spacing: inherit; cursor: pointer; padding: 4px 8px; }
+  .lang-toggle button.active { color: var(--rg-champagne); }
+  .lang-toggle button:hover { color: var(--rg-cream); }
+
+  /* ── HERO ──────────────────────────────────────── */
+  section.hero { padding: var(--s-5) 0 var(--s-7); position: relative; overflow: hidden; }
+  .hero-grid { display: grid; grid-template-columns: 1.1fr 1fr; gap: var(--s-6); align-items: center; }
+  .hero-eyebrow { font-size: var(--t-cap); color: var(--rg-champagne); letter-spacing: 0.28em; text-transform: uppercase; font-weight: 600; margin-bottom: var(--s-3); }
+  .hero-headline { font-family: 'Playfair Display', serif; font-weight: 400; font-size: var(--t-hero); line-height: 1.1; color: var(--rg-cream); margin-bottom: var(--s-4); max-width: 600px; letter-spacing: -0.01em; }
+  .hero-headline em { font-style: italic; color: var(--rg-champagne); }
+  .hero-sub { font-size: var(--t-lead); line-height: 1.45; color: var(--rg-dim); max-width: 540px; margin-bottom: var(--s-5); font-weight: 300; }
+  .hero-image {
+    aspect-ratio: 4/5; overflow: hidden; position: relative;
+    -webkit-mask-image: linear-gradient(to bottom, transparent 0%, #000 14%, #000 86%, transparent 100%);
+    mask-image: linear-gradient(to bottom, transparent 0%, #000 14%, #000 86%, transparent 100%);
+  }
+  .hero-image img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  @media (max-width: 900px) { .hero-grid { grid-template-columns: 1fr; gap: var(--s-5); } .hero-image { aspect-ratio: 4/3; max-height: 60vh; } .hero-headline { font-size: var(--t-h2); } }
+
+  /* ── BUTTONS ──────────────────────────────────────── */
+  .btn { display: inline-block; font-family: 'Inter', sans-serif; font-weight: 600; font-size: var(--t-sm); letter-spacing: 0.12em; text-transform: uppercase; padding: 16px 32px; border: none; cursor: pointer; transition: all 200ms ease; text-decoration: none; }
+  .btn-primary { background: var(--rg-champagne); color: var(--rg-black); }
+  .btn-primary:hover { background: var(--rg-cream); transform: translateY(-1px); }
+  .btn-outline { background: transparent; color: var(--rg-champagne); border: 1px solid var(--rg-champagne); }
+  .btn-outline:hover { background: var(--rg-champagne); color: var(--rg-black); }
+  .btn-row { display: flex; gap: var(--s-2); flex-wrap: wrap; }
+
+  /* ── SECTION ──────────────────────────────────────── */
+  section { padding: var(--s-7) 0; }
+  .sec-eyebrow { font-size: var(--t-cap); color: var(--rg-champagne); letter-spacing: 0.28em; text-transform: uppercase; font-weight: 600; margin-bottom: var(--s-3); }
+  .sec-headline { font-family: 'Playfair Display', serif; font-weight: 400; font-size: var(--t-h2); line-height: 1.15; color: var(--rg-cream); margin-bottom: var(--s-4); max-width: 760px; }
+  .sec-headline em { font-style: italic; color: var(--rg-champagne); }
+  .sec-sub { font-size: var(--t-lead); line-height: 1.5; color: var(--rg-dim); max-width: 660px; font-weight: 300; }
+
+  /* ── HOW IT WORKS (3 steps) ──────────────────── */
+  .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--s-5); margin-top: var(--s-5); }
+  .step { position: relative; padding-top: var(--s-4); border-top: 1px solid var(--rg-hairline); }
+  .step-num { font-family: 'Playfair Display', serif; font-style: italic; font-weight: 400; font-size: 64px; color: var(--rg-champagne); line-height: 1; margin-bottom: var(--s-2); }
+  .step-title { font-family: 'Playfair Display', serif; font-weight: 500; font-size: var(--t-lead); color: var(--rg-cream); margin-bottom: var(--s-2); }
+  .step-body { font-family: 'Inter', sans-serif; font-size: var(--t-sm); line-height: 1.6; color: var(--rg-dim); }
+  @media (max-width: 900px) { .steps { grid-template-columns: 1fr; gap: var(--s-4); } .step-num { font-size: 48px; } }
+
+  /* ── STATS ────────────────────────────────────────── */
+  .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--s-4); margin-top: var(--s-5); }
+  .stat { border-top: 1px solid var(--rg-hairline); padding-top: var(--s-3); }
+  .stat-num { font-family: 'Playfair Display', serif; font-weight: 500; font-size: var(--t-display); line-height: 1; color: var(--rg-champagne); margin-bottom: var(--s-2); letter-spacing: -0.02em; }
+  .stat-label { font-family: 'Inter', sans-serif; font-size: var(--t-cap); letter-spacing: 0.2em; text-transform: uppercase; color: var(--rg-dim); }
+  @media (max-width: 720px) { .stats { grid-template-columns: 1fr; gap: var(--s-3); } .stat-num { font-size: 56px; } }
+
+  /* ── PILLARS ──────────────────────────────────────── */
+  .pillars { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--s-5); margin-top: var(--s-5); }
+  .pillar { border-top: 1px solid var(--rg-hairline); padding-top: var(--s-3); }
+  .pillar-num { font-family: 'Playfair Display', serif; font-style: italic; font-weight: 400; font-size: var(--t-h3); color: var(--rg-champagne); line-height: 1; margin-bottom: var(--s-2); }
+  .pillar-title { font-family: 'Playfair Display', serif; font-weight: 500; font-size: var(--t-lead); color: var(--rg-cream); margin-bottom: var(--s-2); }
+  .pillar-list { list-style: none; }
+  .pillar-list li { font-family: 'Inter', sans-serif; font-size: var(--t-sm); line-height: 1.6; color: var(--rg-dim); padding: 4px 0 4px 16px; position: relative; }
+  .pillar-list li::before { content: '·'; color: var(--rg-champagne); position: absolute; left: 0; font-weight: 700; font-size: 18px; line-height: 1; top: 4px; }
+  @media (max-width: 900px) { .pillars { grid-template-columns: 1fr; gap: var(--s-4); } }
+
+  .fleet-image { margin-top: var(--s-5); aspect-ratio: 21/9; background: var(--rg-black); border: 1px solid var(--rg-hairline); overflow: hidden; }
+  .fleet-image img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+  /* ── PARTNER BENEFITS ─────────────────────────────── */
+  .benefits { display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--s-4) var(--s-5); margin-top: var(--s-5); max-width: 900px; }
+  .benefit { padding: var(--s-3) 0; border-top: 1px solid var(--rg-hairline); }
+  .benefit-title { font-family: 'Playfair Display', serif; font-weight: 500; font-size: var(--t-lead); color: var(--rg-champagne); margin-bottom: var(--s-1); }
+  .benefit-body { font-family: 'Inter', sans-serif; font-size: var(--t-sm); line-height: 1.6; color: var(--rg-dim); }
+  @media (max-width: 720px) { .benefits { grid-template-columns: 1fr; } }
+
+  /* ── COVERAGE ──────────────────────────────────────── */
+  .destinations { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0 var(--s-5); margin-top: var(--s-5); max-width: 800px; }
+  .dest { display: flex; align-items: baseline; gap: var(--s-2); padding: 12px 0; border-bottom: 1px solid var(--rg-hairline); }
+  .dest-num { font-family: 'Playfair Display', serif; font-style: italic; font-size: var(--t-cap); color: var(--rg-dim); width: 24px; }
+  .dest-city { font-family: 'Playfair Display', serif; font-weight: 500; font-size: var(--t-base); color: var(--rg-cream); flex: 1; }
+  .dest-region { font-family: 'Inter', sans-serif; font-size: 10px; letter-spacing: 0.28em; text-transform: uppercase; color: var(--rg-champagne); }
+  @media (max-width: 600px) { .destinations { grid-template-columns: 1fr; } }
+
+  /* ── PROOF ──────────────────────────────────────── */
+  .proof-grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--s-6); align-items: center; margin-top: var(--s-5); }
+  .proof-image { aspect-ratio: 4/3; background: var(--rg-black); border: 1px solid var(--rg-hairline); overflow: hidden; }
+  .proof-image img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .proof-text { font-size: var(--t-base); line-height: 1.7; color: var(--rg-dim); }
+  @media (max-width: 900px) { .proof-grid { grid-template-columns: 1fr; gap: var(--s-4); } }
+
+  /* ── VALUE ADD ──────────────────────────────────── */
+  .values { list-style: none; margin-top: var(--s-5); max-width: 800px; }
+  .values li { font-family: 'Inter', sans-serif; font-size: var(--t-lead); font-weight: 300; line-height: 1.5; color: var(--rg-cream); padding: var(--s-3) 0 var(--s-3) var(--s-4); border-top: 1px solid var(--rg-hairline); position: relative; }
+  .values li:last-child { border-bottom: 1px solid var(--rg-hairline); }
+  .values li::before { content: '+'; color: var(--rg-champagne); position: absolute; left: 0; font-weight: 700; font-size: 24px; top: var(--s-3); }
+
+  /* ── CTA SECTION ──────────────────────────────────── */
+  section.cta-section { text-align: center; padding: var(--s-8) 0; }
+  section.cta-section .sec-eyebrow, section.cta-section .sec-sub { margin-left: auto; margin-right: auto; }
+  section.cta-section .sec-headline { margin-left: auto; margin-right: auto; max-width: 760px; font-size: var(--t-h1); }
+  section.cta-section .btn-row { justify-content: center; margin-top: var(--s-5); }
+  @media (max-width: 720px) { section.cta-section .sec-headline { font-size: var(--t-h2); } }
+
+  /* ── FOOTER ──────────────────────────────────────── */
+  footer { padding: var(--s-6) 0; }
+  .foot-row { display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: var(--s-4); }
+  .foot-brand .mark { display: inline-block; margin-bottom: var(--s-2); }
+  .foot-meta { font-size: var(--t-cap); color: var(--rg-mute); letter-spacing: 0.15em; text-transform: uppercase; line-height: 2; }
+  .foot-contact { font-size: var(--t-sm); color: var(--rg-dim); line-height: 1.8; text-align: right; }
+  .foot-contact a { color: var(--rg-champagne); text-decoration: none; }
+  .foot-contact a:hover { color: var(--rg-cream); }
+  @media (max-width: 720px) { .foot-contact { text-align: left; } }
+
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap top-row">
+    <a href="/" class="mark"><img src="/images/logo-header-dark.png" alt="Rive Gosh"></a>
+    <div class="lang-toggle">
+      <button onclick="setLang('fr')" id="btn-fr" class="active">FR</button>
+      <button onclick="setLang('en')" id="btn-en">EN</button>
+    </div>
+  </div>
+</header>
+
+<!-- ── HERO ──────────────────────────────────────── -->
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="hero-eyebrow">
+        <span class="fr">Agences de voyage · Hôtels · Conciergeries</span>
+        <span class="en">Travel Agencies · Hotels · Conciergeries</span>
+      </div>
+      <h1 class="hero-headline">
+        <span class="fr">Vos clients partent aux États-Unis. Leur transport sur place <em>n'est pas votre métier.</em></span>
+        <span class="en">Your clients are traveling to the USA. Their ground transport <em>isn't your business.</em></span>
+      </h1>
+      <p class="hero-sub">
+        <span class="fr">Le nôtre, si. Devenez partenaire Rive Gosh. Réservez un chauffeur privé francophone partout aux États-Unis pour vos clients — avec une commission ou une marge agence sur chaque réservation.</span>
+        <span class="en">Ours is. Become a Rive Gosh partner. Book a French-speaking private chauffeur anywhere in the USA for your clients — with a commission or agency margin on every booking.</span>
+      </p>
+      <div class="btn-row">
+        <a href="https://wa.me/33775854958" class="btn btn-primary">
+          <span class="fr">Devenir partenaire</span>
+          <span class="en">Become a partner</span>
+        </a>
+        <a href="mailto:daniel@rivegosh.com" class="btn btn-outline">
+          <span class="fr">Envoyer un email</span>
+          <span class="en">Send an email</span>
+        </a>
+      </div>
+    </div>
+    <div class="hero-image">
+      <img src="/images/hero-b.png" alt="POV from chauffeured car, Manhattan skyline, golden hour">
+    </div>
+  </div>
+</section>
+
+<!-- ── HOW IT WORKS ──────────────────────────────────── -->
+<section>
+  <div class="wrap">
+    <div class="sec-eyebrow">
+      <span class="fr">Comment ça marche</span>
+      <span class="en">How it works</span>
+    </div>
+    <h2 class="sec-headline">
+      <span class="fr">Trois étapes simples. <em>Un</em> partenariat durable.</span>
+      <span class="en">Three simple steps. <em>One</em> lasting partnership.</span>
+    </h2>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">01</div>
+        <div class="step-title">
+          <span class="fr">Inscription rapide</span>
+          <span class="en">Quick signup</span>
+        </div>
+        <p class="step-body">
+          <span class="fr">Vous prenez quelques minutes au téléphone avec Daniel. Vos accès partenaire vous sont transmis. Compte activé.</span>
+          <span class="en">Take a few minutes on the phone with Daniel. Your partner access is sent. Account live.</span>
+        </p>
+      </div>
+      <div class="step">
+        <div class="step-num">02</div>
+        <div class="step-title">
+          <span class="fr">Réservation pour vos clients</span>
+          <span class="en">Booking for your clients</span>
+        </div>
+        <p class="step-body">
+          <span class="fr">Vous réservez en quelques clics depuis votre espace partenaire — transferts aéroport, chauffeur à la journée, événements. Vos clients reçoivent leur confirmation.</span>
+          <span class="en">You book in a few clicks from your partner portal — airport transfers, full-day chauffeur, events. Your clients receive their confirmation.</span>
+        </p>
+      </div>
+      <div class="step">
+        <div class="step-num">03</div>
+        <div class="step-title">
+          <span class="fr">Commission ou marge</span>
+          <span class="en">Commission or margin</span>
+        </div>
+        <p class="step-body">
+          <span class="fr">Vous choisissez : commission sur chaque réservation, ou tarifs préférentiels + marge agence. Termes négociés 1:1 avec Daniel.</span>
+          <span class="en">You choose: commission on each booking, or preferred rates + agency margin. Terms negotiated 1:1 with Daniel.</span>
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── WHAT CLIENTS GET (PILLARS) ─────────────────── -->
+<section>
+  <div class="wrap">
+    <div class="sec-eyebrow">
+      <span class="fr">Ce que vos clients reçoivent</span>
+      <span class="en">What your clients get</span>
+    </div>
+    <h2 class="sec-headline">
+      <span class="fr">L'art du voyage <em>américain</em> — sans la moindre friction pour vous.</span>
+      <span class="en">The art of American travel — <em>zero friction</em> for you.</span>
+    </h2>
+    <div class="pillars">
+      <div class="pillar">
+        <div class="pillar-num">01</div>
+        <div class="pillar-title">
+          <span class="fr">Transferts Aéroport Premium</span>
+          <span class="en">Premium Airport Transfers</span>
+        </div>
+        <ul class="pillar-list">
+          <li><span class="fr">Accueil personnalisé Meet &amp; Greet</span><span class="en">Personalized Meet &amp; Greet</span></li>
+          <li><span class="fr">Suivi des vols en temps réel</span><span class="en">Real-time flight tracking</span></li>
+          <li><span class="fr">Assistance bagages complète</span><span class="en">Full luggage assistance</span></li>
+          <li><span class="fr">Ponctualité garantie</span><span class="en">Guaranteed punctuality</span></li>
+        </ul>
+      </div>
+      <div class="pillar">
+        <div class="pillar-num">02</div>
+        <div class="pillar-title">
+          <span class="fr">Chauffeur Privé à la Demande</span>
+          <span class="en">Private Chauffeur On Demand</span>
+        </div>
+        <ul class="pillar-list">
+          <li><span class="fr">À l'heure ou à la journée — jour comme nuit</span><span class="en">Hourly or full-day — day or night</span></li>
+          <li><span class="fr">Déplacements pro, tourisme de luxe, événements</span><span class="en">Business, luxury tourism, events</span></li>
+          <li><span class="fr">Shopping, gastronomie, spectacles</span><span class="en">Shopping, dining, shows</span></li>
+        </ul>
+      </div>
+      <div class="pillar">
+        <div class="pillar-num">03</div>
+        <div class="pillar-title">
+          <span class="fr">Flotte Haut de Gamme</span>
+          <span class="en">Premium Fleet</span>
+        </div>
+        <ul class="pillar-list">
+          <li><span class="fr">Berlines de luxe · SUV premium</span><span class="en">Luxury sedans · Premium SUVs</span></li>
+          <li><span class="fr">Vans pour groupes</span><span class="en">Group vans</span></li>
+          <li><span class="fr">Véhicules récents, assurés, entretenus</span><span class="en">Recent, insured, maintained vehicles</span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="fleet-image">
+      <img src="/images/fleet-a.png" alt="Three vehicles in formation at hotel forecourt">
+    </div>
+  </div>
+</section>
+
+<!-- ── NUMBERS ──────────────────────────────────────── -->
+<section>
+  <div class="wrap">
+    <div class="sec-eyebrow">
+      <span class="fr">L'échelle du réseau</span>
+      <span class="en">The network at scale</span>
+    </div>
+    <h2 class="sec-headline">
+      <span class="fr">Trois chiffres. <em>Une</em> exigence.</span>
+      <span class="en">Three numbers. <em>One</em> standard.</span>
+    </h2>
+    <p class="sec-sub">
+      <span class="fr">Le meilleur rapport qualité-prix pour le marché européen — votre marge ou votre commission est garantie.</span>
+      <span class="en">The most accessible premium chauffeur service for the European market — your margin or commission is guaranteed.</span>
+    </p>
+    <div class="stats">
+      <div class="stat">
+        <div class="stat-num">+5000</div>
+        <div class="stat-label">
+          <span class="fr">Chauffeurs VIP</span>
+          <span class="en">VIP Drivers</span>
+        </div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">50</div>
+        <div class="stat-label">
+          <span class="fr">États couverts</span>
+          <span class="en">States covered</span>
+        </div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">24/7</div>
+        <div class="stat-label">
+          <span class="fr">Support francophone</span>
+          <span class="en">French-speaking support</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── PARTNER OFFER ──────────────────────────────────── -->
+<section>
+  <div class="wrap">
+    <div class="sec-eyebrow">
+      <span class="fr">Pour vous, partenaire</span>
+      <span class="en">For you, partner</span>
+    </div>
+    <h2 class="sec-headline">
+      <span class="fr">Une <em>collaboration</em> faite pour durer.</span>
+      <span class="en">A <em>collaboration</em> built to last.</span>
+    </h2>
+    <div class="benefits">
+      <div class="benefit">
+        <div class="benefit-title">
+          <span class="fr">Tarifs préférentiels</span>
+          <span class="en">Preferred rates</span>
+        </div>
+        <p class="benefit-body">
+          <span class="fr">Réservez aux meilleures conditions du marché européen, négociées 1:1 avec Daniel.</span>
+          <span class="en">Book at the best terms on the European market, negotiated 1:1 with Daniel.</span>
+        </p>
+      </div>
+      <div class="benefit">
+        <div class="benefit-title">
+          <span class="fr">Commission ou marge agence</span>
+          <span class="en">Commission or agency margin</span>
+        </div>
+        <p class="benefit-body">
+          <span class="fr">Au choix : commission directe sur chaque réservation, ou marge agence sur les tarifs préférentiels.</span>
+          <span class="en">Your choice: direct commission on every booking, or agency margin on the preferred rates.</span>
+        </p>
+      </div>
+      <div class="benefit">
+        <div class="benefit-title">
+          <span class="fr">Mise en place rapide</span>
+          <span class="en">Fast setup</span>
+        </div>
+        <p class="benefit-body">
+          <span class="fr">Mise en place sans paperasse. Vos accès transmis dès l'appel. Facturation simple.</span>
+          <span class="en">No-paperwork setup. Your access sent during the call. Simple invoicing.</span>
+        </p>
+      </div>
+      <div class="benefit">
+        <div class="benefit-title">
+          <span class="fr">Contact direct 24 / 7</span>
+          <span class="en">Direct contact 24 / 7</span>
+        </div>
+        <p class="benefit-body">
+          <span class="fr">Daniel répond en personne. Pas de centre d'appels, pas d'intermédiaire — réactivité immédiate.</span>
+          <span class="en">Daniel answers in person. No call center, no middleman — immediate response.</span>
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── COVERAGE ──────────────────────────────────────── -->
+<section>
+  <div class="wrap">
+    <div class="sec-eyebrow">
+      <span class="fr">Couverture</span>
+      <span class="en">Coverage</span>
+    </div>
+    <h2 class="sec-headline">
+      <span class="fr">+50 États. 11 grandes <em>métropoles</em>. Sur demande, partout.</span>
+      <span class="en">+50 States. 11 major <em>metros</em>. On request, everywhere.</span>
+    </h2>
+    <div class="destinations">
+      <div class="dest"><span class="dest-num">01</span><span class="dest-city">New York</span><span class="dest-region">NY</span></div>
+      <div class="dest"><span class="dest-num">02</span><span class="dest-city">Washington</span><span class="dest-region">D.C.</span></div>
+      <div class="dest"><span class="dest-num">03</span><span class="dest-city">Chicago</span><span class="dest-region">IL</span></div>
+      <div class="dest"><span class="dest-num">04</span><span class="dest-city">Los Angeles</span><span class="dest-region">CA</span></div>
+      <div class="dest"><span class="dest-num">05</span><span class="dest-city">San Francisco</span><span class="dest-region">CA</span></div>
+      <div class="dest"><span class="dest-num">06</span><span class="dest-city">Miami</span><span class="dest-region">FL</span></div>
+      <div class="dest"><span class="dest-num">07</span><span class="dest-city">Orlando</span><span class="dest-region">FL</span></div>
+      <div class="dest"><span class="dest-num">08</span><span class="dest-city">Dallas</span><span class="dest-region">TX</span></div>
+      <div class="dest"><span class="dest-num">09</span><span class="dest-city">Houston</span><span class="dest-region">TX</span></div>
+      <div class="dest"><span class="dest-num">10</span><span class="dest-city">Austin</span><span class="dest-region">TX</span></div>
+      <div class="dest"><span class="dest-num">11</span><span class="dest-city" style="font-style:italic; color:var(--rg-champagne);"><span class="fr">Sur demande</span><span class="en">On request</span></span><span class="dest-region">USA</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ── PROOF ──────────────────────────────────────── -->
+<section>
+  <div class="wrap">
+    <div class="sec-eyebrow">
+      <span class="fr">Déjà à nos côtés</span>
+      <span class="en">Already with us</span>
+    </div>
+    <h2 class="sec-headline">
+      <span class="fr">39 <em>Palaces</em> Hôtels. 49 <em>Corporates</em>. Rejoignez-les.</span>
+      <span class="en">39 <em>Palaces</em> Hotels. 49 <em>Corporates</em>. Join them.</span>
+    </h2>
+    <div class="proof-grid">
+      <div class="proof-image">
+        <img src="/images/scene-a.png" alt="Chauffeur opens door at hotel arrival">
+      </div>
+      <p class="proof-text">
+        <span class="fr">Notre réseau partenaire compte les plus grandes maisons hôtelières et les agences de voyage les plus exigeantes d'Europe. Vous rejoignez une communauté de partenaires qui ont fait le même choix : offrir à leurs clients l'excellence du voyage américain, sans en porter la complexité opérationnelle.</span>
+        <span class="en">Our partner network includes Europe's leading hospitality houses and most demanding travel agencies. You join a community of partners who made the same choice: offer their clients the excellence of American travel, without bearing the operational complexity.</span>
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ── VALUE FOR YOUR CLIENTS ───────────────────────── -->
+<section>
+  <div class="wrap">
+    <div class="sec-eyebrow">
+      <span class="fr">Valeur ajoutée</span>
+      <span class="en">Value added</span>
+    </div>
+    <h2 class="sec-headline">
+      <span class="fr">Pour vos clients, c'est l'<em>expérience</em> qui change tout.</span>
+      <span class="en">For your clients, it's the <em>experience</em> that changes everything.</span>
+    </h2>
+    <ul class="values">
+      <li>
+        <span class="fr">Expérience premium dès l'arrivée à l'aéroport</span>
+        <span class="en">Premium experience from arrival at the airport</span>
+      </li>
+      <li>
+        <span class="fr">Image haut de gamme de votre agence renforcée</span>
+        <span class="en">Your agency's premium brand image reinforced</span>
+      </li>
+      <li>
+        <span class="fr">Gain de temps et confort total pour vos clients</span>
+        <span class="en">Time savings and total comfort for your clients</span>
+      </li>
+      <li>
+        <span class="fr">Sécurité et sérénité absolues, du premier au dernier kilomètre</span>
+        <span class="en">Absolute safety and peace of mind, from first to last kilometer</span>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<!-- ── CTA ──────────────────────────────────────── -->
+<section class="cta-section">
+  <div class="wrap">
+    <div class="sec-eyebrow">
+      <span class="fr">Devenir partenaire</span>
+      <span class="en">Become a partner</span>
+    </div>
+    <h2 class="sec-headline">
+      <span class="fr">Devenez partenaire en <em>toute confiance</em>.</span>
+      <span class="en">Become a partner <em>with full confidence</em>.</span>
+    </h2>
+    <p class="sec-sub" style="margin-bottom: var(--s-2);">
+      <span class="fr">Parlez à Daniel Amaury. Il vous explique le programme, vous active votre compte partenaire, et vous accompagne sur les premières réservations.</span>
+      <span class="en">Talk to Daniel Amaury. He'll walk you through the program, activate your partner account, and support you on your first bookings.</span>
+    </p>
+    <div class="btn-row">
+      <a href="https://wa.me/33775854958" class="btn btn-primary">
+        <span class="fr">Parler à Daniel · WhatsApp</span>
+        <span class="en">Talk to Daniel · WhatsApp</span>
+      </a>
+      <a href="mailto:daniel@rivegosh.com" class="btn btn-outline">
+        <span class="fr">Envoyer un email</span>
+        <span class="en">Send an email</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER ──────────────────────────────────────── -->
+<footer>
+  <div class="wrap foot-row">
+    <div class="foot-brand">
+      <a href="/" class="mark"><img src="/images/logo-header-dark.png" alt="Rive Gosh"></a>
+      <div class="foot-meta">
+        Établi · 2026 · Paris<br>
+        Concierge &amp; Chauffeur Privé
+      </div>
+    </div>
+    <div class="foot-contact">
+      Daniel Amaury<br>
+      <a href="https://wa.me/33775854958">+33 7 75 85 49 58 · WhatsApp</a><br>
+      <a href="mailto:daniel@rivegosh.com">daniel@rivegosh.com</a><br>
+      <a href="https://rivegosh.com">rivegosh.com</a> · <a href="https://rgconcierge.com">rgconcierge.com</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  function setLang(lang) {
+    document.documentElement.lang = lang;
+    document.documentElement.setAttribute('data-lang', lang);
+    document.getElementById('btn-fr').classList.toggle('active', lang === 'fr');
+    document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+  }
+</script>
+
+</body>
+</html>
