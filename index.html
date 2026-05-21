@@ -1,10 +1,15 @@
 <!DOCTYPE html>
-<html lang="fr">
+<!--
+  Rive Gosh — home page (rivegosh.com root)
+  Audience router: 4 boxes → book, clients, affiliates, partners
+  Brand foundation: Playfair Display + Inter, champagne #CCC593 on dark luxury #0f0c08
+-->
+<html lang="fr" data-lang="fr">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Rive Gosh — Concierge & Chauffeur Privé</title>
-<meta name="description" content="Concierge & Chauffeur Privé — préversion des landing pages.">
+<title>Rive Gosh — Concierge &amp; Chauffeur Privé · États-Unis</title>
+<meta name="description" content="Rive Gosh — concierge et chauffeur privé pour les voyageurs européens aux États-Unis. +5000 chauffeurs VIP, 50 États, support francophone 24/7.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -12,171 +17,258 @@
   :root {
     --rg-champagne: #CCC593;
     --rg-canvas: #0f0c08;
+    --rg-black: #0a0a0a;
     --rg-cream: #F5F0E6;
     --rg-hairline: rgba(204, 197, 147, 0.35);
     --rg-dim: rgba(245, 240, 230, 0.6);
+    --rg-mute: rgba(245, 240, 230, 0.4);
+    --s-1: 8px; --s-2: 16px; --s-3: 24px; --s-4: 32px;
+    --s-5: 48px; --s-6: 64px; --s-7: 96px; --s-8: 128px;
+    --t-cap: 12px; --t-sm: 15px; --t-base: 18px; --t-lead: 22px;
+    --t-h3: 28px; --t-h2: 35px; --t-h1: 44px; --t-hero: 64px; --t-display: 88px;
   }
   * { box-sizing: border-box; margin: 0; padding: 0; }
-  html, body {
-    background: var(--rg-canvas);
-    color: var(--rg-cream);
-    font-family: 'Inter', system-ui, sans-serif;
-    -webkit-font-smoothing: antialiased;
-    min-height: 100vh;
-  }
-  .wrap {
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 48px 32px;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-  }
-  header {
-    padding-bottom: 32px;
-    border-bottom: 1px solid var(--rg-hairline);
-  }
-  .mark {
-    font-family: 'Playfair Display', serif;
-    font-weight: 500;
-    font-size: 20px;
-    letter-spacing: 0.28em;
-    color: var(--rg-champagne);
-    text-transform: uppercase;
-  }
-  main {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding: 64px 0;
-  }
-  .eyebrow {
-    font-size: 12px;
-    color: var(--rg-champagne);
-    letter-spacing: 0.28em;
-    text-transform: uppercase;
-    font-weight: 600;
-    margin-bottom: 24px;
-  }
-  h1 {
-    font-family: 'Playfair Display', serif;
-    font-weight: 400;
-    font-size: 56px;
-    line-height: 1.1;
-    color: var(--rg-cream);
-    margin-bottom: 24px;
-    letter-spacing: -0.01em;
-    max-width: 700px;
-  }
-  h1 em { font-style: italic; color: var(--rg-champagne); }
-  .lede {
-    font-size: 22px;
-    line-height: 1.5;
-    color: var(--rg-dim);
-    max-width: 600px;
-    font-weight: 300;
-    margin-bottom: 64px;
-  }
-  .choices {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 32px;
-    margin-bottom: 48px;
-  }
-  .choice {
-    border-top: 1px solid var(--rg-hairline);
-    padding-top: 24px;
-    text-decoration: none;
-    color: inherit;
-    transition: opacity 200ms ease;
-  }
-  .choice:hover { opacity: 0.75; }
-  .choice-num {
-    font-family: 'Playfair Display', serif;
-    font-style: italic;
-    font-weight: 400;
-    font-size: 28px;
-    color: var(--rg-champagne);
-    line-height: 1;
-    margin-bottom: 16px;
-  }
-  .choice-title {
-    font-family: 'Playfair Display', serif;
-    font-weight: 500;
-    font-size: 28px;
-    color: var(--rg-cream);
-    margin-bottom: 8px;
-    line-height: 1.2;
-  }
-  .choice-sub {
-    font-size: 15px;
-    line-height: 1.6;
-    color: var(--rg-dim);
-    margin-bottom: 16px;
-  }
-  .choice-arrow {
-    font-family: 'Inter', sans-serif;
-    font-size: 12px;
-    letter-spacing: 0.2em;
-    color: var(--rg-champagne);
-    text-transform: uppercase;
-    font-weight: 600;
-  }
-  .choice-arrow::after { content: ' →'; }
-  footer {
-    padding-top: 32px;
-    border-top: 1px solid var(--rg-hairline);
-    font-size: 12px;
-    color: rgba(245, 240, 230, 0.4);
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 16px;
-  }
-  footer a { color: var(--rg-champagne); text-decoration: none; }
-  @media (max-width: 720px) {
-    h1 { font-size: 38px; }
-    .choices { grid-template-columns: 1fr; gap: 16px; }
-    .choice-title { font-size: 22px; }
-  }
+  html, body { background: var(--rg-canvas); color: var(--rg-cream); font-family: 'Inter', system-ui, sans-serif; font-size: var(--t-base); line-height: 1.6; -webkit-font-smoothing: antialiased; }
+  [data-lang="fr"] .en { display: none; }
+  [data-lang="en"] .fr { display: none; }
+  .wrap { max-width: 1200px; margin: 0 auto; padding: 0 var(--s-4); }
+  @media (max-width: 720px) { .wrap { padding: 0 var(--s-3); } }
+
+  header.top { padding: var(--s-3) 0; border-bottom: 1px solid var(--rg-hairline); position: sticky; top: 0; background: rgba(15, 12, 8, 0.92); backdrop-filter: blur(12px); z-index: 100; }
+  .top-row { display: flex; align-items: center; justify-content: space-between; }
+  .mark { display: inline-block; line-height: 0; }
+  .mark img { display: block; height: 45px; width: auto; }
+  @media (max-width: 720px) { .mark img { height: 34px; } }
+  .lang-toggle { display: flex; gap: var(--s-2); font-family: 'Inter', sans-serif; font-size: var(--t-cap); letter-spacing: 0.2em; text-transform: uppercase; }
+  .lang-toggle button { background: none; border: none; color: var(--rg-dim); font: inherit; letter-spacing: inherit; cursor: pointer; padding: 4px 8px; }
+  .lang-toggle button.active { color: var(--rg-champagne); }
+  .lang-toggle button:hover { color: var(--rg-cream); }
+
+  section.hero { padding: var(--s-7) 0 var(--s-5); text-align: center; }
+  .hero-eyebrow { font-size: var(--t-cap); color: var(--rg-champagne); letter-spacing: 0.32em; text-transform: uppercase; font-weight: 600; margin-bottom: var(--s-3); }
+  .hero-headline { font-family: 'Playfair Display', serif; font-weight: 400; font-size: var(--t-hero); line-height: 1.05; color: var(--rg-cream); margin-bottom: var(--s-3); letter-spacing: -0.015em; max-width: 900px; margin-left: auto; margin-right: auto; }
+  .hero-headline em { font-style: italic; color: var(--rg-champagne); }
+  .hero-sub { font-size: var(--t-lead); line-height: 1.5; color: var(--rg-dim); max-width: 720px; margin: 0 auto; font-weight: 300; }
+  @media (max-width: 900px) { .hero-headline { font-size: var(--t-h2); } }
+
+  section.routing { padding: var(--s-6) 0 var(--s-7); }
+  .routing-eyebrow { font-size: var(--t-cap); color: var(--rg-champagne); letter-spacing: 0.32em; text-transform: uppercase; font-weight: 600; margin-bottom: var(--s-4); text-align: center; }
+  .boxes { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--s-3); }
+  @media (max-width: 900px) { .boxes { grid-template-columns: repeat(2, 1fr); gap: var(--s-2); } }
+  @media (max-width: 540px) { .boxes { grid-template-columns: 1fr; } }
+  .box { display: flex; flex-direction: column; padding: var(--s-4); border: 1px solid var(--rg-hairline); text-decoration: none; color: inherit; min-height: 280px; transition: all 240ms ease; position: relative; background: rgba(204, 197, 147, 0.02); }
+  .box:hover { border-color: var(--rg-champagne); background: rgba(204, 197, 147, 0.05); transform: translateY(-2px); }
+  .box-num { font-family: 'Playfair Display', serif; font-style: italic; font-weight: 400; font-size: var(--t-h3); color: var(--rg-champagne); line-height: 1; margin-bottom: var(--s-3); }
+  .box-title { font-family: 'Playfair Display', serif; font-weight: 500; font-size: 26px; color: var(--rg-cream); margin-bottom: var(--s-2); line-height: 1.15; }
+  .box-title em { font-style: italic; color: var(--rg-champagne); }
+  .box-body { font-family: 'Inter', sans-serif; font-size: var(--t-sm); line-height: 1.6; color: var(--rg-dim); flex: 1; margin-bottom: var(--s-3); }
+  .box-cta { font-family: 'Inter', sans-serif; font-size: var(--t-cap); letter-spacing: 0.18em; text-transform: uppercase; color: var(--rg-champagne); font-weight: 600; }
+  .box-cta::after { content: ' →'; transition: margin-left 240ms ease; }
+  .box:hover .box-cta::after { margin-left: 6px; }
+  .box-primary { background: var(--rg-champagne); color: var(--rg-black); }
+  .box-primary .box-num, .box-primary .box-title, .box-primary .box-title em { color: var(--rg-black); }
+  .box-primary .box-body { color: rgba(10, 10, 10, 0.72); }
+  .box-primary .box-cta { color: var(--rg-black); }
+  .box-primary:hover { background: var(--rg-cream); }
+
+  section.stats-section { padding: var(--s-7) 0; }
+  .stats-eyebrow { font-size: var(--t-cap); color: var(--rg-champagne); letter-spacing: 0.32em; text-transform: uppercase; font-weight: 600; margin-bottom: var(--s-3); text-align: center; }
+  .stats-sub { font-size: var(--t-lead); line-height: 1.5; color: var(--rg-dim); text-align: center; max-width: 660px; margin: 0 auto var(--s-5); font-weight: 300; }
+  .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--s-4); }
+  .stat { border-top: 1px solid var(--rg-hairline); padding-top: var(--s-3); }
+  .stat-num { font-family: 'Playfair Display', serif; font-weight: 500; font-size: var(--t-display); line-height: 1; color: var(--rg-champagne); margin-bottom: var(--s-2); letter-spacing: -0.02em; }
+  .stat-label { font-family: 'Inter', sans-serif; font-size: var(--t-cap); letter-spacing: 0.2em; text-transform: uppercase; color: var(--rg-dim); }
+  @media (max-width: 720px) { .stats { grid-template-columns: 1fr; gap: var(--s-3); } .stat-num { font-size: 56px; } }
+
+  section.about { padding: var(--s-7) 0; text-align: center; }
+  .about-eyebrow { font-size: var(--t-cap); color: var(--rg-champagne); letter-spacing: 0.32em; text-transform: uppercase; font-weight: 600; margin-bottom: var(--s-3); }
+  .about-body { font-family: 'Playfair Display', serif; font-weight: 400; font-style: italic; font-size: var(--t-lead); line-height: 1.65; color: var(--rg-cream); max-width: 720px; margin: 0 auto; }
+  .about-body em { color: var(--rg-champagne); }
+
+  footer { padding: var(--s-6) 0 var(--s-5); border-top: 1px solid var(--rg-hairline); }
+  .foot-row { display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: var(--s-4); }
+  .foot-brand .mark { display: inline-block; margin-bottom: var(--s-2); }
+  .foot-meta { font-size: var(--t-cap); color: var(--rg-mute); letter-spacing: 0.15em; text-transform: uppercase; line-height: 2; }
+  .foot-contact { font-size: var(--t-sm); color: var(--rg-dim); line-height: 1.8; text-align: right; }
+  .foot-contact a { color: var(--rg-champagne); text-decoration: none; }
+  .foot-contact a:hover { color: var(--rg-cream); }
+  @media (max-width: 720px) { .foot-contact { text-align: left; } }
 </style>
 </head>
 <body>
-<div class="wrap">
 
-  <header><div class="mark">Rive Gosh</div></header>
-
-  <main>
-    <div class="eyebrow">Préversion · Landing Pages</div>
-    <h1>L'art du voyage <em>américain</em>.</h1>
-    <p class="lede">Concierge &amp; chauffeur privé pour le voyageur européen aux États-Unis. Choisissez votre porte d'entrée.</p>
-
-    <div class="choices">
-      <a href="clients/" class="choice">
-        <div class="choice-num">01</div>
-        <div class="choice-title">Pour le voyageur</div>
-        <p class="choice-sub">Vous voyagez aux États-Unis et cherchez un chauffeur privé francophone pour vos déplacements.</p>
-        <div class="choice-arrow">Voir la page Clients</div>
-      </a>
-
-      <a href="affiliates/" class="choice">
-        <div class="choice-num">02</div>
-        <div class="choice-title">Pour l'agence</div>
-        <p class="choice-sub">Vous êtes une agence de voyage, un hôtel ou une conciergerie qui envoie ses clients aux États-Unis.</p>
-        <div class="choice-arrow">Voir la page Partenaires</div>
-      </a>
+<header class="top">
+  <div class="wrap top-row">
+    <a href="./" class="mark"><img src="images/logo-header-dark.png" alt="Rive Gosh"></a>
+    <div class="lang-toggle">
+      <button onclick="setLang('fr')" id="btn-fr" class="active">FR</button>
+      <button onclick="setLang('en')" id="btn-en">EN</button>
     </div>
-  </main>
+  </div>
+</header>
 
-  <footer>
-    <div>Préversion · 2026-05-15</div>
-    <div>Daniel Amaury · <a href="mailto:daniel@rivegosh.com">daniel@rivegosh.com</a></div>
-  </footer>
+<section class="hero">
+  <div class="wrap">
+    <div class="hero-eyebrow">Établi · 2026 · Paris</div>
+    <h1 class="hero-headline">
+      <span class="fr">L'art du voyage <em>américain</em>.</span>
+      <span class="en">The art of <em>American</em> travel.</span>
+    </h1>
+    <p class="hero-sub">
+      <span class="fr">Concierge &amp; chauffeur privé pour les voyageurs européens aux États-Unis. Discrétion d'un grand hôtel, précision d'une maison de concierge.</span>
+      <span class="en">Concierge &amp; private chauffeur for European travelers in the USA. Discretion of a great hotel, precision of a concierge house.</span>
+    </p>
+  </div>
+</section>
 
-</div>
+<section class="routing">
+  <div class="wrap">
+    <div class="routing-eyebrow">
+      <span class="fr">Choisissez votre entrée</span>
+      <span class="en">Choose your entry</span>
+    </div>
+    <div class="boxes">
+
+      <a href="https://rgconcierge.com" class="box box-primary">
+        <div class="box-num">01</div>
+        <div class="box-title">
+          <span class="fr">Réserver</span>
+          <span class="en">Book</span>
+        </div>
+        <p class="box-body">
+          <span class="fr">Vous avez besoin d'un chauffeur. Réservez en moins de 60 secondes.</span>
+          <span class="en">You need a chauffeur. Book in under 60 seconds.</span>
+        </p>
+        <div class="box-cta">rgconcierge.com</div>
+      </a>
+
+      <a href="clients/" class="box">
+        <div class="box-num">02</div>
+        <div class="box-title">
+          <span class="fr">Voyageurs</span>
+          <span class="en">Travelers</span>
+        </div>
+        <p class="box-body">
+          <span class="fr">Vous voyagez aux États-Unis. Découvrez notre service francophone.</span>
+          <span class="en">You're traveling to the USA. Discover our French-speaking service.</span>
+        </p>
+        <div class="box-cta">
+          <span class="fr">Page Voyageurs</span>
+          <span class="en">Clients page</span>
+        </div>
+      </a>
+
+      <a href="affiliates/" class="box">
+        <div class="box-num">03</div>
+        <div class="box-title">
+          <span class="fr">Agences</span>
+          <span class="en">Agencies</span>
+        </div>
+        <p class="box-body">
+          <span class="fr">Agence de voyage, hôtel, conciergerie. Devenez partenaire avec commission.</span>
+          <span class="en">Travel agency, hotel, conciergerie. Partner with us with a commission.</span>
+        </p>
+        <div class="box-cta">
+          <span class="fr">Page Partenaires</span>
+          <span class="en">Affiliates page</span>
+        </div>
+      </a>
+
+      <a href="partners/" class="box">
+        <div class="box-num">04</div>
+        <div class="box-title">
+          <span class="fr">Flotte</span>
+          <span class="en">Fleet</span>
+        </div>
+        <p class="box-body">
+          <span class="fr">Vous opérez une flotte aux États-Unis. Rejoignez notre réseau de chauffeurs.</span>
+          <span class="en">You operate a fleet in the USA. Join our chauffeur network.</span>
+        </p>
+        <div class="box-cta">
+          <span class="fr">Devenir prestataire</span>
+          <span class="en">Become a supplier</span>
+        </div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<section class="stats-section">
+  <div class="wrap">
+    <div class="stats-eyebrow">
+      <span class="fr">L'échelle du réseau</span>
+      <span class="en">The network at scale</span>
+    </div>
+    <p class="stats-sub">
+      <span class="fr">Le meilleur rapport qualité-prix pour le voyageur européen, partout aux États-Unis.</span>
+      <span class="en">The most accessible premium chauffeur service for European travelers, anywhere in the USA.</span>
+    </p>
+    <div class="stats">
+      <div class="stat">
+        <div class="stat-num">+5000</div>
+        <div class="stat-label">
+          <span class="fr">Chauffeurs VIP</span>
+          <span class="en">VIP Drivers</span>
+        </div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">50</div>
+        <div class="stat-label">
+          <span class="fr">États couverts</span>
+          <span class="en">States covered</span>
+        </div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">24/7</div>
+        <div class="stat-label">
+          <span class="fr">Support francophone</span>
+          <span class="en">French-speaking support</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="about">
+  <div class="wrap">
+    <div class="about-eyebrow">
+      <span class="fr">Notre maison</span>
+      <span class="en">Our house</span>
+    </div>
+    <p class="about-body">
+      <span class="fr">Née à Paris en 2026, Rive Gosh orchestre l'expérience du voyage <em>américain</em> pour la clientèle européenne — transferts aéroport, chauffeur privé à la journée, flotte haut de gamme. 39 Palaces Hôtels et 49 Corporates nous confient déjà leurs clients.</span>
+      <span class="en">Born in Paris in 2026, Rive Gosh orchestrates the <em>American</em> travel experience for European clientele — airport transfers, private chauffeur by the day, premium fleet. 39 Palaces Hotels and 49 Corporates already entrust their clients to us.</span>
+    </p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap foot-row">
+    <div class="foot-brand">
+      <a href="./" class="mark"><img src="images/logo-header-dark.png" alt="Rive Gosh"></a>
+      <div class="foot-meta">
+        Établi · 2026 · Paris<br>
+        Concierge &amp; Chauffeur Privé
+      </div>
+    </div>
+    <div class="foot-contact">
+      Daniel Amaury<br>
+      <a href="https://wa.me/33775854958">+33 7 75 85 49 58 · WhatsApp</a><br>
+      <a href="mailto:daniel@rivegosh.com">daniel@rivegosh.com</a><br>
+      <a href="https://rgconcierge.com">rgconcierge.com</a> · <a href="https://rivegosh.com">rivegosh.com</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  function setLang(lang) {
+    document.documentElement.lang = lang;
+    document.documentElement.setAttribute('data-lang', lang);
+    document.getElementById('btn-fr').classList.toggle('active', lang === 'fr');
+    document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+  }
+</script>
+
 </body>
 </html>
