@@ -9,10 +9,11 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Rive Gosh — Concierge &amp; Chauffeur Privé · États-Unis</title>
-<meta name="description" content="Rive Gosh — concierge et chauffeur privé pour les voyageurs européens aux États-Unis. +5000 chauffeurs VIP, 50 États, support francophone 24/7.">
+<meta name="description" content="Rive Gosh — concierge et chauffeur privé pour les voyageurs européens aux États-Unis. +1000 chauffeurs VIP, 50 États, support francophone 24/7.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="preload" as="image" href="images/hero-b.webp" fetchpriority="high">
 <style>
   :root {
     --rg-champagne: #CCC593;
@@ -44,12 +45,21 @@
   .lang-toggle button.active { color: var(--rg-champagne); }
   .lang-toggle button:hover { color: var(--rg-cream); }
 
-  section.hero { padding: var(--s-7) 0 var(--s-5); text-align: center; }
+  /* full-bleed cinematic hero */
+  section.hero { position: relative; min-height: 78vh; display: flex; align-items: center; justify-content: center; text-align: center; overflow: hidden; padding: var(--s-7) 0; }
+  section.hero::before { content: ''; position: absolute; inset: 0; background-image: url('images/hero-b.webp'); background-position: center; background-size: cover; z-index: 0; }
+  section.hero::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(15,12,8,0.55) 0%, rgba(15,12,8,0.7) 50%, rgba(15,12,8,1) 100%); z-index: 1; }
+  section.hero .wrap { position: relative; z-index: 2; }
   .hero-eyebrow { font-size: var(--t-cap); color: var(--rg-champagne); letter-spacing: 0.32em; text-transform: uppercase; font-weight: 600; margin-bottom: var(--s-3); }
-  .hero-headline { font-family: 'Playfair Display', serif; font-weight: 400; font-size: var(--t-hero); line-height: 1.05; color: var(--rg-cream); margin-bottom: var(--s-3); letter-spacing: -0.015em; max-width: 900px; margin-left: auto; margin-right: auto; }
+  .hero-headline { font-family: 'Playfair Display', serif; font-weight: 400; font-size: var(--t-hero); line-height: 1.05; color: var(--rg-cream); margin-bottom: var(--s-3); letter-spacing: -0.015em; max-width: 900px; margin-left: auto; margin-right: auto; text-shadow: 0 2px 24px rgba(0,0,0,0.6); }
   .hero-headline em { font-style: italic; color: var(--rg-champagne); }
-  .hero-sub { font-size: var(--t-lead); line-height: 1.5; color: var(--rg-dim); max-width: 720px; margin: 0 auto; font-weight: 300; }
-  @media (max-width: 900px) { .hero-headline { font-size: var(--t-h2); } }
+  .hero-sub { font-size: var(--t-lead); line-height: 1.5; color: var(--rg-cream); max-width: 680px; margin: 0 auto; font-weight: 300; opacity: 0.92; text-shadow: 0 1px 12px rgba(0,0,0,0.6); }
+  @media (max-width: 900px) { section.hero { min-height: 70vh; } .hero-headline { font-size: var(--t-h2); } }
+
+  /* cinematic image break */
+  section.cinema-break { position: relative; overflow: hidden; margin: var(--s-5) 0; }
+  section.cinema-break img { display: block; width: 100%; height: auto; max-height: 64vh; object-fit: cover; object-position: center; -webkit-mask-image: linear-gradient(to bottom, transparent 0%, #000 12%, #000 88%, transparent 100%); mask-image: linear-gradient(to bottom, transparent 0%, #000 12%, #000 88%, transparent 100%); }
+  @media (max-width: 720px) { section.cinema-break img { max-height: 50vh; } }
 
   section.routing { padding: var(--s-6) 0 var(--s-7); }
   .routing-eyebrow { font-size: var(--t-cap); color: var(--rg-champagne); letter-spacing: 0.32em; text-transform: uppercase; font-weight: 600; margin-bottom: var(--s-4); text-align: center; }
@@ -80,10 +90,18 @@
   .stat-label { font-family: 'Inter', sans-serif; font-size: var(--t-cap); letter-spacing: 0.2em; text-transform: uppercase; color: var(--rg-dim); }
   @media (max-width: 720px) { .stats { grid-template-columns: 1fr; gap: var(--s-3); } .stat-num { font-size: 56px; } }
 
-  section.about { padding: var(--s-7) 0; text-align: center; }
+  /* about with image */
+  section.about { padding: var(--s-7) 0; }
+  .about-grid { display: grid; grid-template-columns: 1fr 1.1fr; gap: var(--s-6); align-items: center; }
+  @media (max-width: 900px) { .about-grid { grid-template-columns: 1fr; gap: var(--s-5); } }
+  .about-image { aspect-ratio: 4/5; overflow: hidden; -webkit-mask-image: linear-gradient(to bottom, transparent 0%, #000 14%, #000 86%, transparent 100%); mask-image: linear-gradient(to bottom, transparent 0%, #000 14%, #000 86%, transparent 100%); }
+  .about-image img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  @media (max-width: 900px) { .about-image { aspect-ratio: 4/3; max-height: 50vh; } }
   .about-eyebrow { font-size: var(--t-cap); color: var(--rg-champagne); letter-spacing: 0.32em; text-transform: uppercase; font-weight: 600; margin-bottom: var(--s-3); }
-  .about-body { font-family: 'Playfair Display', serif; font-weight: 400; font-style: italic; font-size: var(--t-lead); line-height: 1.65; color: var(--rg-cream); max-width: 720px; margin: 0 auto; }
-  .about-body em { color: var(--rg-champagne); }
+  .about-headline { font-family: 'Playfair Display', serif; font-weight: 400; font-size: var(--t-h2); line-height: 1.15; color: var(--rg-cream); margin-bottom: var(--s-3); }
+  .about-headline em { font-style: italic; color: var(--rg-champagne); }
+  .about-body { font-family: 'Inter', sans-serif; font-weight: 300; font-size: var(--t-lead); line-height: 1.6; color: var(--rg-dim); }
+  .about-body em { font-style: italic; color: var(--rg-champagne); }
 
   footer { padding: var(--s-6) 0 var(--s-5); border-top: 1px solid var(--rg-hairline); }
   .foot-row { display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: var(--s-4); }
@@ -119,6 +137,10 @@
       <span class="en">Concierge &amp; private chauffeur for European travelers in the USA. Discretion of a great hotel, precision of a concierge house.</span>
     </p>
   </div>
+</section>
+
+<section class="cinema-break">
+  <img src="images/fleet-a.webp" alt="Three vehicles in formation at hotel forecourt" loading="lazy" width="1600" height="900">
 </section>
 
 <section class="routing">
@@ -206,7 +228,7 @@
     </p>
     <div class="stats">
       <div class="stat">
-        <div class="stat-num">+5000</div>
+        <div class="stat-num">+1000</div>
         <div class="stat-label">
           <span class="fr">Chauffeurs VIP</span>
           <span class="en">VIP Drivers</span>
@@ -232,14 +254,25 @@
 
 <section class="about">
   <div class="wrap">
-    <div class="about-eyebrow">
-      <span class="fr">Notre maison</span>
-      <span class="en">Our house</span>
+    <div class="about-grid">
+      <div class="about-image">
+        <img src="images/scene-a.webp" alt="Chauffeur opens door at hotel arrival" loading="lazy" width="1600" height="1600">
+      </div>
+      <div>
+        <div class="about-eyebrow">
+          <span class="fr">Notre maison</span>
+          <span class="en">Our house</span>
+        </div>
+        <h2 class="about-headline">
+          <span class="fr">Née à Paris. Orchestrée à <em>l'américaine</em>.</span>
+          <span class="en">Born in Paris. Orchestrated the <em>American</em> way.</span>
+        </h2>
+        <p class="about-body">
+          <span class="fr">Rive Gosh est une maison de concierge française dédiée au voyage <em>américain</em> de la clientèle européenne. Transferts aéroport, chauffeur privé à la journée, flotte haut de gamme. <em>39 Palaces Hôtels</em> et <em>49 Corporates</em> nous confient déjà leurs clients.</span>
+          <span class="en">Rive Gosh is a French concierge house dedicated to the <em>American</em> travel experience of European clientele. Airport transfers, private chauffeur by the day, premium fleet. <em>39 Palaces Hotels</em> and <em>49 Corporates</em> already entrust their clients to us.</span>
+        </p>
+      </div>
     </div>
-    <p class="about-body">
-      <span class="fr">Née à Paris en 2026, Rive Gosh orchestre l'expérience du voyage <em>américain</em> pour la clientèle européenne — transferts aéroport, chauffeur privé à la journée, flotte haut de gamme. 39 Palaces Hôtels et 49 Corporates nous confient déjà leurs clients.</span>
-      <span class="en">Born in Paris in 2026, Rive Gosh orchestrates the <em>American</em> travel experience for European clientele — airport transfers, private chauffeur by the day, premium fleet. 39 Palaces Hotels and 49 Corporates already entrust their clients to us.</span>
-    </p>
   </div>
 </section>
 
