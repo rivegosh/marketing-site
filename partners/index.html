@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<!--
+  Rive Gosh — /partners (suppliers / fleet operators)
+  Stub page — full LP pending Daniel's supply-side offer definition
+  Tracked: rivegosh/concierge-rivegosh#129
+-->
+<html lang="fr" data-lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rive Gosh — Pour les opérateurs de flotte</title>
+<meta name="description" content="Vous opérez une flotte aux États-Unis ? Rejoignez le réseau Rive Gosh.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --rg-champagne: #CCC593;
+    --rg-canvas: #0f0c08;
+    --rg-cream: #F5F0E6;
+    --rg-hairline: rgba(204, 197, 147, 0.35);
+    --rg-dim: rgba(245, 240, 230, 0.6);
+    --rg-mute: rgba(245, 240, 230, 0.4);
+    --s-2: 16px; --s-3: 24px; --s-4: 32px; --s-5: 48px; --s-6: 64px; --s-7: 96px;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { background: var(--rg-canvas); color: var(--rg-cream); font-family: 'Inter', system-ui, sans-serif; font-size: 18px; line-height: 1.6; -webkit-font-smoothing: antialiased; min-height: 100vh; }
+  [data-lang="fr"] .en { display: none; }
+  [data-lang="en"] .fr { display: none; }
+  .wrap { max-width: 900px; margin: 0 auto; padding: 0 var(--s-4); min-height: 100vh; display: flex; flex-direction: column; }
+  header.top { padding: var(--s-3) 0; border-bottom: 1px solid var(--rg-hairline); display: flex; justify-content: space-between; align-items: center; }
+  .mark img { display: block; height: 45px; width: auto; }
+  @media (max-width: 720px) { .mark img { height: 34px; } }
+  .lang-toggle { display: flex; gap: var(--s-2); font-size: 12px; letter-spacing: 0.2em; text-transform: uppercase; }
+  .lang-toggle button { background: none; border: none; color: var(--rg-dim); font: inherit; letter-spacing: inherit; cursor: pointer; padding: 4px 8px; }
+  .lang-toggle button.active { color: var(--rg-champagne); }
+  main { flex: 1; display: flex; flex-direction: column; justify-content: center; padding: var(--s-7) 0; }
+  .eyebrow { font-size: 12px; color: var(--rg-champagne); letter-spacing: 0.28em; text-transform: uppercase; font-weight: 600; margin-bottom: var(--s-3); }
+  h1 { font-family: 'Playfair Display', serif; font-weight: 400; font-size: 56px; line-height: 1.1; color: var(--rg-cream); margin-bottom: var(--s-3); letter-spacing: -0.015em; }
+  h1 em { font-style: italic; color: var(--rg-champagne); }
+  .lede { font-size: 22px; line-height: 1.5; color: var(--rg-dim); font-weight: 300; margin-bottom: var(--s-5); max-width: 660px; }
+  .note { border-left: 2px solid var(--rg-champagne); padding: var(--s-3) var(--s-4); background: rgba(204, 197, 147, 0.04); font-size: 15px; line-height: 1.65; color: var(--rg-dim); margin-bottom: var(--s-5); max-width: 660px; }
+  .note strong { color: var(--rg-cream); font-weight: 600; }
+  .btn-row { display: flex; gap: var(--s-2); flex-wrap: wrap; }
+  .btn { display: inline-block; font-family: 'Inter', sans-serif; font-weight: 600; font-size: 15px; letter-spacing: 0.12em; text-transform: uppercase; padding: 16px 32px; cursor: pointer; transition: all 200ms ease; text-decoration: none; }
+  .btn-primary { background: var(--rg-champagne); color: #0a0a0a; }
+  .btn-primary:hover { background: var(--rg-cream); transform: translateY(-1px); }
+  .btn-outline { background: transparent; color: var(--rg-champagne); border: 1px solid var(--rg-champagne); }
+  .btn-outline:hover { background: var(--rg-champagne); color: #0a0a0a; }
+  .back { font-size: 12px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--rg-dim); text-decoration: none; margin-top: var(--s-5); display: inline-block; }
+  .back:hover { color: var(--rg-champagne); }
+  .back::before { content: '← '; }
+  footer { padding: var(--s-5) 0 var(--s-4); border-top: 1px solid var(--rg-hairline); font-size: 12px; color: var(--rg-mute); letter-spacing: 0.15em; text-transform: uppercase; }
+  @media (max-width: 720px) { h1 { font-size: 36px; } .lede { font-size: 18px; } }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="top">
+    <a href="../" class="mark"><img src="../images/logo-header-dark.png" alt="Rive Gosh"></a>
+    <div class="lang-toggle">
+      <button onclick="setLang('fr')" id="btn-fr" class="active">FR</button>
+      <button onclick="setLang('en')" id="btn-en">EN</button>
+    </div>
+  </header>
+
+  <main>
+    <div class="eyebrow">
+      <span class="fr">Opérateurs de flotte · États-Unis</span>
+      <span class="en">Fleet operators · USA</span>
+    </div>
+    <h1>
+      <span class="fr">Devenez <em>prestataire</em> dans notre réseau.</span>
+      <span class="en">Become a <em>supplier</em> in our network.</span>
+    </h1>
+    <p class="lede">
+      <span class="fr">Vous opérez une flotte de chauffeurs aux États-Unis. Nous orchestrons les réservations européennes. Notre programme partenaires-prestataires est en cours de finalisation — contactez Daniel pour en discuter en direct.</span>
+      <span class="en">You operate a chauffeur fleet in the USA. We orchestrate European bookings. Our supplier partner program is being finalized — contact Daniel to discuss directly.</span>
+    </p>
+
+    <div class="note">
+      <strong>
+        <span class="fr">Programme en cours de finalisation.</span>
+        <span class="en">Program being finalized.</span>
+      </strong>
+      <span class="fr"> Tarifs préférentiels prestataires, volume de réservations européennes, intégration dans notre plateforme de booking. Détails communiqués 1:1 avec Daniel Amaury.</span>
+      <span class="en"> Preferred supplier rates, European booking volume, integration into our booking platform. Details communicated 1:1 with Daniel Amaury.</span>
+    </div>
+
+    <div class="btn-row">
+      <a href="https://wa.me/33775854958" class="btn btn-primary">
+        <span class="fr">Parler à Daniel · WhatsApp</span>
+        <span class="en">Talk to Daniel · WhatsApp</span>
+      </a>
+      <a href="mailto:daniel@rivegosh.com?subject=Partenariat%20Flotte%20-%20Demande" class="btn btn-outline">
+        <span class="fr">Envoyer un email</span>
+        <span class="en">Send an email</span>
+      </a>
+    </div>
+
+    <a href="../" class="back">
+      <span class="fr">Retour à l'accueil</span>
+      <span class="en">Back to home</span>
+    </a>
+  </main>
+
+  <footer>
+    Daniel Amaury · <a style="color:var(--rg-champagne); text-decoration:none;" href="mailto:daniel@rivegosh.com">daniel@rivegosh.com</a> · <a style="color:var(--rg-champagne); text-decoration:none;" href="https://rgconcierge.com">rgconcierge.com</a>
+  </footer>
+
+</div>
+
+<script>
+  function setLang(lang) {
+    document.documentElement.lang = lang;
+    document.documentElement.setAttribute('data-lang', lang);
+    document.getElementById('btn-fr').classList.toggle('active', lang === 'fr');
+    document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+  }
+</script>
+</body>
+</html>
